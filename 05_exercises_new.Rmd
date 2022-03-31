@@ -164,7 +164,7 @@ garden_harvest %>%
            fill = list(daily_harvest_lb = 0)) %>% 
   group_by(variety) %>% 
   mutate(cum_wt_lbs = cumsum(daily_harvest_lb))  %>% 
-  ggplot(aes(x = date, y = cum_wt_lbs, fill = fct_reorder(variety, cum_wt_lbs, .fun = max, .desc = TRUE))) +
+  ggplot(aes(x = date, y = cum_wt_lbs, fill = fct_reorder(variety, cum_wt_lbs, .fun = max, .desc = FALSE))) +
   geom_area() +
   geom_text(aes(label = variety), position = "stack") +
   labs(title = "Tomato Harvest Over Time", 
@@ -227,6 +227,7 @@ anim_save("mallorca_bike.gif")
 knitr::include_graphics("mallorca_bike.gif")
 ```
   
+  **I like the animation better because it feels more dynamic. It captures the audiences attention better and represnts the data better.**
   
   5. In this exercise, you get to meet Lisa's sister, Heather! She is a proud Mac grad, currently works as a Data Scientist where she uses R everyday, and for a few years (while still holding a full-time job) she was a pro triathlete. You are going to map one of her races. The data from each discipline of the Ironman 70.3 Pan Am championships, Panama is in a separate file - `panama_swim`, `panama_bike`, and `panama_run`. Create a similar map to the one you created with my cycling data. You will need to make some small changes: 1. combine the files putting them in swim, bike, run order (HINT: `bind_rows()`), 2. make the leading dot a different color depending on the event (for an extra challenge, make it a different image using `geom_image()!), 3. CHALLENGE (optional): color by speed, which you will need to compute on your own from the data. You can read Heather's race report [here](https://heatherlendway.com/2016/02/10/ironman-70-3-pan-american-championships-panama-race-report/). She is also in the Macalester Athletics [Hall of Fame](https://athletics.macalester.edu/honors/hall-of-fame/heather-lendway/184) and still has records at the pool. 
   
@@ -314,6 +315,8 @@ anim_save("covid_map.gif")
 knitr::include_graphics("covid_map.gif")
 ```
 
+**I always look at my home state of Maryland first and it looks like we are doing pretty good with covid, especially compared to some of the surrounding states. It is interesting how the midwest in general is the first to reach higher cases per 10,000, while the coasts remain lower for longer.**
+
 ## Your first `shiny` app (for next week!)
 
   7. This app will also use the COVID data. Make sure you load that data and all the libraries you need in the `app.R` file you create. You should create a new project for the app, separate from the homework project. Below, you will post a link to the app that you publish on shinyapps.io. You will create an app to compare states' daily number of COVID cases per 100,000 over time. The x-axis will be date. You will have an input box where the user can choose which states to compare (`selectInput()`), a slider where the user can choose the date range, and a submit button to click once the user has chosen all states they're interested in comparing. The graph should display a different line for each state, with labels either on the graph or in a legend. Color can be used if needed. 
@@ -324,5 +327,8 @@ Put the link to your app [here](https://ty-benz.shinyapps.io/ShinyApp/)
 
   8. Below, provide a link to your GitHub repo with this set of Weekly Exercises. 
 
+Github Link: [here](https://github.com/tybenz12/Exercise-5)
+
+.md Link: [here](https://github.com/tybenz12/Exercise-5/blob/main/05_exercises_new.md)
 
 **DID YOU REMEMBER TO UNCOMMENT THE OPTIONS AT THE TOP?**
